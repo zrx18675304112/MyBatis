@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zrx.mybatis.mapper.parameterMapper">
+    <!--List<User> getAllUsers();-->
+    <select id="getAllUsers" resultType="User">
+        select * from t_user
+    </select>
+
+    <!--int InsertToUser();-->
+    <insert id="InsertToUser">
+        insert into t_user values (null ,#{username},#{password},#{age},#{sex},#{email})
+    </insert>
+
+    <!--User gerUserByUsernameAndPassword(@Param("username")String username,@Param("password")String password);-->
+    <select id="gerUserByUsernameAndPassword" resultType="User">
+        select * from t_user where username=#{username} and password=#{password}
+    </select>
+</mapper>
